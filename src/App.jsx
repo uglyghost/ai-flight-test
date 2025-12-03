@@ -29,12 +29,12 @@ const steps = [
     id: 'intro',
     title: '引言：智能试飞变革',
     subtitle: 'AI Agents in Flight Test',
-    description: '以国产大飞机 C919 为例，传统试飞面临周期长、风险高、数据分析难的挑战。引入大模型智能体（LLM Agents），构建“虚拟试飞工程师”，实现全生命周期的智能辅助。',
+    description: '传统试飞面临周期长、风险高、数据分析难的挑战。引入大模型智能体（LLM Agents），构建“虚拟试飞工程师”，实现全生命周期的智能辅助。',
     icon: Brain,
     targetPart: 'all',
     color: 'text-blue-400',
     hudData: [
-      { label: 'AIRCRAFT', value: 'C919-10101' },
+      { label: 'AIRCRAFT', value: '10101' },
       { label: 'SYSTEM', value: 'ONLINE' },
       { label: 'AI MODEL', value: 'GEMINI-ULTRA' }
     ],
@@ -45,7 +45,7 @@ const steps = [
     },
     cases: [
       {
-        title: "C919 适航取证数字孪生",
+        title: "适航取证数字孪生",
         desc: "建立全生命周期数字档案，AI 辅助管理数万项符合性验证条目，提升取证效率。",
         effect: "digital-twin"
       },
@@ -65,7 +65,7 @@ const steps = [
     id: 'design',
     title: '智能试验规划',
     subtitle: 'Generative Test Design',
-    description: '针对 C919 复杂的适航取证需求，智能体利用 RAG 技术读取数万页 SRD 文档，自动拆解功能点，生成覆盖极端边界工况（如大侧风、积冰）的测试矩阵。',
+    description: '针对飞机复杂的适航取证需求，智能体利用 RAG 技术读取数万页 SRD 文档，自动拆解功能点，生成覆盖极端边界工况（如大侧风、积冰）的测试矩阵。',
     icon: FileText,
     targetPart: 'fuselage',
     color: 'text-purple-400',
@@ -137,7 +137,7 @@ const steps = [
     id: 'monitoring',
     title: '实时监控与颤振预警',
     subtitle: 'Real-time Health Monitoring',
-    description: '针对 C919 高速试飞中的颤振风险，智能体实时监控传感器流。利用时序大模型捕捉人眼难以察觉的微弱发散趋势，提前 500ms 发出告警并建议减速。',
+    description: '针对飞机高速试飞中的颤振风险，智能体实时监控传感器流。利用时序大模型捕捉人眼难以察觉的微弱发散趋势，提前 500ms 发出告警并建议减速。',
     icon: Activity,
     targetPart: 'wings_engine',
     color: 'text-red-400',
@@ -243,9 +243,9 @@ const TechProcessCard = ({ detail, color }) => (
   </div>
 );
 
-// --- 组件：C919 风格飞机 SVG ---
+// --- 组件：风格飞机 SVG ---
 
-const C919Plane = ({ activePart, isWarning, effect }) => {
+const CXXXPlane = ({ activePart, isWarning, effect }) => {
   const baseStyle = "fill-slate-800 stroke-slate-600 stroke-1 transition-all duration-500";
   const activeStyle = isWarning
     ? "fill-red-900/50 stroke-red-500 stroke-2 animate-pulse drop-shadow-[0_0_15px_rgba(239,68,68,0.6)]"
@@ -361,7 +361,7 @@ const C919Plane = ({ activePart, isWarning, effect }) => {
           </filter>
         </defs>
 
-        {/* --- C919 Geometry --- */}
+        {/* --- CXXX Geometry --- */}
         <path d="M260,240 L120,290 L100,280 L110,270 L260,220 Z" className={getStyle('wing_l')} /> {/* 左翼 */}
         <path d="M340,240 L480,290 L500,280 L490,270 L340,220 Z" className={getStyle('wing_r')} /> {/* 右翼 */}
         <path d="M100,280 L90,260 L100,265 Z" className={getStyle('winglet_l')} />
@@ -442,7 +442,7 @@ export default function FlightTestPresentation() {
         <div className="p-8 border-b border-slate-800">
           <div className="flex items-center space-x-2 text-blue-500 mb-2">
             <Activity className="w-5 h-5" />
-            <span className="text-xs font-bold tracking-[0.2em]">C919 INTELLIGENT TEST</span>
+            <span className="text-xs font-bold tracking-[0.2em]">CXXX INTELLIGENT TEST</span>
           </div>
           <h1 className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400 leading-tight">
             基于大模型的<br/>飞机试验设计与测试
@@ -573,7 +573,7 @@ export default function FlightTestPresentation() {
         <div className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start pointer-events-none z-20">
           <div className="flex flex-col">
             <div className="text-xs font-mono text-slate-500">PROJECT ID</div>
-            <div className="text-sm font-bold text-slate-300">COMAC C919-TEST</div>
+            <div className="text-sm font-bold text-slate-300">COMAC CXXX-TEST</div>
           </div>
           {/* HUD 面板 */}
           <div className="pointer-events-auto">
@@ -594,9 +594,9 @@ export default function FlightTestPresentation() {
           </div>
         </div>
 
-        {/* 核心可视化：C919 飞机 */}
+        {/* 核心可视化：CXXX 飞机 */}
         <div className="relative w-full h-full flex items-center justify-center scale-90 md:scale-100">
-          <C919Plane
+          <CXXXPlane
             activePart={currentStep.targetPart}
             isWarning={currentStep.isWarning}
             effect={currentEffect}
@@ -619,7 +619,7 @@ export default function FlightTestPresentation() {
 
         <div className="absolute bottom-4 text-center">
            <p className="text-[10px] text-slate-600 font-mono tracking-widest">
-             MODEL: C919 | POWERED BY LLM AGENTS
+             MODEL: CXXX | POWERED BY LLM AGENTS
            </p>
         </div>
       </div>
